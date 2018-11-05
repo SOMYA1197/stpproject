@@ -70,10 +70,10 @@ if(isset($_POST['submit'])){
       <div class="form">
         <form class="" method="post">
 
-          <h1 style=" text-align: center">LOGIN</h1><br><br>
+          <h1 style=" text-align: center">LOGIN</h1><br>
             <div class="form-group">
               <label for="email">Email address:</label>
-              <input type="email" class="form-control" name="email" id="email" required><br>
+              <input type="email" class="form-control" name="email" id="email" required>
             </div>
             <div class="form-group">
               <label for="pwd">Password:</label>
@@ -91,8 +91,9 @@ if(isset($_POST['submit'])){
               </label>
             </div>
             <br><br>
-            <button type="submit" name="submit"  class="btn btn-primary">Login</button><br>
-            <ahref>
+            <button type="submit" name="submit"  class="form-control btn btn-primary">Login</button><br>
+           <br>
+           <a href="registration.php">Create Account Here</a>
 
               <span style="color:red;"><?php echo $msg; ?></span>
       </form>
