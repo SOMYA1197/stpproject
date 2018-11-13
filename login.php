@@ -10,7 +10,9 @@ if(isset($_POST['submit'])){
   $email = $_POST['email'];
     $password = $_POST['password'];
       $catagory = $_POST['catagory'];
+     
       if($catagory=="student"){
+        
             $query = mysqli_query($conn,"SELECT * FROM student_reg WHERE email='$email' && password='$password' ");
             $array = mysqli_fetch_array($query);
             $studentusername = $array['email'];
@@ -18,23 +20,25 @@ if(isset($_POST['submit'])){
             $studentemail = $array['email'];
             if($email == $studentemail && $password==$studentpassword){
 
-              $_SESSION["username"] = $studentusername;
-              header("location: student/template.php");
+              $_SESSION["email"] = $studentusername;
+              header("location: student/index.php");
 
             }else{
-              $msg = " Incorrect Username or Password";
+              $msg = " Incorrect Email or Password";
             }
 
   }
   else{
-            $query = mysqli_query($conn,"SELECT * FROM tutor_reg WHERE username='$username' && password='$password'");
+            $query = mysqli_query($conn,"SELECT * FROM tutor_reg WHERE email='$email' && password='$password'");
             $array = mysqli_fetch_array($query);
-            $tutorusername = $array['username'];
+            $tutorusername = $array['email'];
             $tutorpassword= $array['password'];
-            if($username == $tutorusername && $password==$tutorpassword){
-              header("location: tutor/template.php");
+            if($email == $tutorusername && $password==$tutorpassword){             
+            
+              $_SESSION["email"] = $tutorusername;
+              header("location: tutor/index.php");
             }else{
-              $msg = " Incorrect Username or Password";
+              $msg = " Incorrect Email or Password";
             }
   }
 
