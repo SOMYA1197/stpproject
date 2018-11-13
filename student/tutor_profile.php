@@ -1,7 +1,7 @@
 <?php
 
 require('session.php');
-$session = $_SESSION["username"];
+$session = $_SESSION["email"];
 
 require('../config/dbconnect.php');
 $id = $_GET['id'];
